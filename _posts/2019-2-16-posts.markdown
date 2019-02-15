@@ -1,0 +1,9 @@
+---
+layout: default
+img: visited_cities.png
+category: Posts
+title: Visited Cities
+description: |
+---
+
+* Took this screen shot from my Facebook profile > More > Check-ins > Visited Cities.
