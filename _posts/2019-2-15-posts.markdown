@@ -6,4 +6,4 @@ title: Life Events
 description: |
 ---
 
-* Took this screen shot from my Facebook profile > About > Life events.
+* Screen shot from my Facebook profile > About > Life events.

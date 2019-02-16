@@ -6,4 +6,4 @@ title: Visited Cities
 description: |
 ---
 
-* Took this screen shot from my Facebook profile > More > Check-ins > Visited Cities.
+* Screen shot from my Facebook profile > More > Check-ins > Visited Cities.
