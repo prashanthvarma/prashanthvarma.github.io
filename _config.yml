@@ -18,6 +18,8 @@ permalink: pretty
 # Build sitemap
 gems:
   - jekyll-sitemap
+plugins:
+  - jekyll-seo-tag
 
 # ----------------------- #
 #   3rd Party Settings    #
