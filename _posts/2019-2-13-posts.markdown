@@ -1,7 +1,7 @@
 ---
 layout: default
 img: nuage.png
-category: Posts
+category: Life
 title: Work Experience & Career
 description: |
 ---

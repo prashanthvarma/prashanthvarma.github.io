@@ -1,7 +1,7 @@
 ---
 layout: default
 img: tudelft.png
-category: Posts
+category: Life
 title: Education & Research
 description: |
 ---

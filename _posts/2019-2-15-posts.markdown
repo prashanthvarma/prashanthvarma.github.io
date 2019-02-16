@@ -1,7 +1,7 @@
 ---
 layout: default
 img: life_events.png
-category: Posts
+category: Life
 title: Life Events
 description: |
 ---
