@@ -1,9 +1,0 @@
----
-layout: default
-img: life_events.png
-category: Life
-title: Life Events
-description: |
----
-
-* Screen shot from my Facebook profile > About > Life events.
