@@ -2,7 +2,7 @@
 layout: default
 img:
 category: Posts
-title: Welcome !!
+title: Have a great day !
 description: |
 ---
 
