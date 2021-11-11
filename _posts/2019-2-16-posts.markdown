@@ -1,9 +1,8 @@
 ---
 layout: default
-img: visited_cities.png
+img: visited_places.png
 category: Life
-title: Visited Cities
+title: Visited Places
 description: |
 ---
 
-* Screen shot from my Facebook profile > More > Check-ins > Visited Cities.
