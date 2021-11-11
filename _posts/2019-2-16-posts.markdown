@@ -1,8 +1,8 @@
 ---
 layout: default
-img: visited_places.png
+img:
 category: Life
-title: Visited Places
+title: 
 description: |
 ---
 
