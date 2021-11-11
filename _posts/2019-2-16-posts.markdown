@@ -1,7 +1,7 @@
 ---
 layout: default
 img:
-category: Life
+category: Posts
 title: 
 description: |
 ---
