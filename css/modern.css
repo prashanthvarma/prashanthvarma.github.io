@@ -773,9 +773,7 @@ body::before {
   border-color: rgba(29, 161, 242, 0.3);
 }
 
-.github-card:hover {
-  border-color: rgba(36, 41, 46, 0.3);
-}
+
 
 .social-insight-header {
   display: flex;
@@ -806,9 +804,7 @@ body::before {
   color: #1da1f2;
 }
 
-.github-card .platform-info i {
-  color: #24292e;
-}
+
 
 .social-insight-content {
   padding: 2rem;
@@ -849,30 +845,7 @@ body::before {
   justify-content: center;
 }
 
-.github-info {
-  margin-top: 1.5rem;
-  text-align: center;
-}
 
-.github-info h4 {
-  color: var(--text-primary);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.github-info p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.github-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
 .linkedin-embed-container {
   text-align: center;
@@ -944,13 +917,7 @@ body::before {
   box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
 }
 
-.github-link {
-  background: linear-gradient(135deg, #24292e, #1b1f23);
-}
 
-.github-link:hover {
-  box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
-}
 
 .social-card {
   background: rgba(255, 255, 255, 0.95);
