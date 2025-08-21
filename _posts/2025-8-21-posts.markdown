@@ -1,11 +1,3 @@
----
-layout: default
-img:
-category: Posts
-title: Follow me on my social media for more updates.
-description: |
----
-
 <div style="text-align: center; margin: 20px 0;">
     <iframe 
         src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1" 
