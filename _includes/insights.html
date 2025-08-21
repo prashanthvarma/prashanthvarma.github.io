@@ -29,7 +29,8 @@
                             frameborder="0" 
                             allowfullscreen="" 
                             title="Embedded post"
-                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; width: 100%;">
+                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; width: 100%;"
+                            referrerpolicy="no-referrer">
                         </iframe>
                         
                         <!-- LinkedIn Fallback -->
@@ -101,19 +102,34 @@
         
         <!-- LinkedIn Embed Script -->
         <script>
-        // Simple fallback if LinkedIn embed fails to load
+        // Enhanced fallback detection for LinkedIn embed
         document.addEventListener('DOMContentLoaded', function() {
             const iframe = document.getElementById('linkedin-embed');
             const fallback = document.getElementById('linkedin-fallback');
             
-            // Check if iframe loaded after 5 seconds
+            // Check for blocked content or loading issues
             setTimeout(() => {
-                if (iframe && iframe.offsetHeight < 200) {
-                    // If iframe is too small, show fallback
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
+                if (iframe) {
+                    // Check if iframe content is blocked or too small
+                    if (iframe.offsetHeight < 200 || 
+                        iframe.contentDocument && iframe.contentDocument.body && 
+                        iframe.contentDocument.body.textContent.includes('blocked')) {
+                        // Show fallback
+                        iframe.style.display = 'none';
+                        fallback.style.display = 'block';
+                    }
                 }
-            }, 5000);
+            }, 3000);
+            
+            // Additional check after iframe loads
+            iframe.addEventListener('load', function() {
+                setTimeout(() => {
+                    if (iframe.offsetHeight < 200) {
+                        iframe.style.display = 'none';
+                        fallback.style.display = 'block';
+                    }
+                }, 2000);
+            });
         });
         </script>
     </div>
