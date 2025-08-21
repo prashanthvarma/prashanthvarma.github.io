@@ -1,62 +1,62 @@
 <!-- Modern Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" aria-label="Main navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#home">
-                <img src="img/logo/logo.jpg" alt="Prashanth Varma" class="navbar-brand">
-                M. P. V. Manthena
+            <a class="navbar-brand" href="#home" aria-label="Go to homepage">
+                <img src="img/logo/logo.jpg" alt="Prashanth Varma Manthena" class="navbar-brand" width="40" height="40">
+                <span>M. P. V. Manthena</span>
             </a>
         </div>
         
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#posts">Posts</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav navbar-nav navbar-right" role="menubar">
+                <li role="none"><a href="#about" role="menuitem" aria-label="About section">About</a></li>
+                <li role="none"><a href="#skills" role="menuitem" aria-label="Skills section">Skills</a></li>
+                <li role="none"><a href="#posts" role="menuitem" aria-label="Posts section">Posts</a></li>
+                <li role="none"><a href="#contact" role="menuitem" aria-label="Contact section">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="hero-section">
+<main id="home" class="hero-section" role="main">
     <div class="hero-content">
         <h1 class="hero-title">Prashanth Varma Manthena</h1>
-        <p class="hero-subtitle">Life Long Learner & Tech Enthusiast</p>
-        <hr class="hero-divider">
+        <p class="hero-subtitle">Director of Software Engineering & Tech Enthusiast</p>
+        <hr class="hero-divider" aria-hidden="true">
         
-        <div class="social-buttons">
-            <a href="mailto:me@prashanthvarma.com" class="social-btn">
-                <i class="fa fa-envelope"></i>
+        <nav class="social-buttons" aria-label="Social media links">
+            <a href="mailto:me@prashanthvarma.com" class="social-btn" aria-label="Send email to Prashanth Varma">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>Email</span>
             </a>
-            <a href="https://linkedin.com/in/prashanthvarma" class="social-btn" target="_blank">
-                <i class="fa fa-linkedin"></i>
+            <a href="https://linkedin.com/in/prashanthvarma" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Prashanth Varma's LinkedIn profile">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
                 <span>LinkedIn</span>
             </a>
-            <a href="https://twitter.com/prashanthvarma" class="social-btn" target="_blank">
-                <i class="fa fa-twitter"></i>
+            <a href="https://twitter.com/prashanthvarma" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Prashanth Varma's Twitter profile">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
                 <span>Twitter</span>
             </a>
-            <a href="https://github.com/prashanthvarma" class="social-btn" target="_blank">
-                <i class="fa fa-github"></i>
+            <a href="https://github.com/prashanthvarma" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Prashanth Varma's GitHub profile">
+                <i class="fa fa-github" aria-hidden="true"></i>
                 <span>GitHub</span>
             </a>
-            <a href="https://scholar.google.nl/citations?user=vrV8YSgAAAAJ&hl=en&oi=sra" class="social-btn" target="_blank">
-                <i class="ai ai-google-scholar-square"></i>
+            <a href="https://scholar.google.nl/citations?user=vrV8YSgAAAAJ&hl=en&oi=sra" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Prashanth Varma's Google Scholar profile">
+                <i class="ai ai-google-scholar-square" aria-hidden="true"></i>
                 <span>Scholar</span>
             </a>
-            <a href="https://gitlab.com/pmanthena" class="social-btn" target="_blank">
-                <i class="fa fa-gitlab"></i>
+            <a href="https://gitlab.com/pmanthena" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Prashanth Varma's GitLab profile">
+                <i class="fa fa-gitlab" aria-hidden="true"></i>
                 <span>GitLab</span>
             </a>
-        </div>
+        </nav>
     </div>
-</section>
+</main>
