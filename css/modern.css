@@ -85,11 +85,24 @@ body::before {
   gap: 0.75rem;
 }
 
-.navbar-brand img {
+.navbar-logo {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-color);
+}
+
+.navbar-brand-text {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
 }
 
 .navbar-nav > li > a {
@@ -745,9 +758,12 @@ body::before {
 /* Social Media Insights Grid */
 .social-insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .social-insight-card {
@@ -769,8 +785,8 @@ body::before {
   border-color: rgba(0, 119, 181, 0.3);
 }
 
-.twitter-card:hover {
-  border-color: rgba(29, 161, 242, 0.3);
+.x-card:hover {
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -800,8 +816,8 @@ body::before {
   color: #0077b5;
 }
 
-.twitter-card .platform-info i {
-  color: #1da1f2;
+.x-card .platform-info i {
+  color: #000000;
 }
 
 
@@ -834,7 +850,7 @@ body::before {
   justify-content: center;
 }
 
-.twitter-fallback {
+.x-fallback {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -909,12 +925,12 @@ body::before {
   text-decoration: none;
 }
 
-.twitter-link {
-  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+.x-link {
+  background: linear-gradient(135deg, #000000, #333333);
 }
 
-.twitter-link:hover {
-  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+.x-link:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 
