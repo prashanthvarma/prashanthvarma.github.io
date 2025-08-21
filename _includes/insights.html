@@ -4,25 +4,28 @@
         <h2 class="section-title">Insights & Thought Leadership</h2>
         <p class="section-subtitle">Professional insights, industry perspectives, and thought leadership from my journey in technology</p>
         
-        <!-- LinkedIn Activity -->
-        <div class="linkedin-activity-container">
-            <div class="social-card linkedin-card">
-                <div class="social-header">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    <h3>LinkedIn Activity</h3>
+        <!-- Insights Grid -->
+        <div class="insights-grid">
+            <!-- LinkedIn Activity -->
+            <div class="insight-card linkedin-insight">
+                <div class="insight-header">
+                    <div class="insight-type">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        <span>LinkedIn Activity</span>
+                    </div>
                     <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" rel="noopener noreferrer" class="profile-link" aria-label="Visit LinkedIn profile">
                         <i class="fa fa-external-link" aria-hidden="true"></i>
                     </a>
                 </div>
                 
                 <!-- LinkedIn Post Embed -->
-                <div class="social-content">
+                <div class="insight-content">
                     <div class="linkedin-embed-container">
                         <!-- Primary LinkedIn Embed -->
                         <iframe 
                             id="linkedin-embed"
                             src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844" 
-                            height="400" 
+                            height="350" 
                             width="100%" 
                             frameborder="0" 
                             allowfullscreen="" 
@@ -35,7 +38,7 @@
                         <!-- Fallback Content -->
                         <div id="linkedin-fallback" class="linkedin-fallback" style="display: none;">
                             <div class="fallback-content">
-                                <i class="fa fa-linkedin" style="font-size: 3rem; color: #0077b5; margin-bottom: 1rem;"></i>
+                                <i class="fa fa-linkedin" style="font-size: 2.5rem; color: #0077b5; margin-bottom: 1rem;"></i>
                                 <h4>LinkedIn Post</h4>
                                 <p>Recent professional insights and industry perspectives</p>
                                 <div class="fallback-actions">
@@ -56,77 +59,89 @@
                         </p>
                     </div>
                 </div>
-                
-                <!-- LinkedIn Embed Script -->
-                <script>
-                function checkLinkedInEmbed() {
-                    const iframe = document.getElementById('linkedin-embed');
-                    const fallback = document.getElementById('linkedin-fallback');
-                    
-                    // Check if iframe loaded successfully
-                    setTimeout(() => {
-                        try {
-                            if (iframe.contentWindow && iframe.contentWindow.location.href) {
-                                // Iframe loaded successfully
-                                iframe.style.display = 'block';
-                                fallback.style.display = 'none';
-                            } else {
-                                // Show fallback
-                                showLinkedInFallback();
-                            }
-                        } catch (e) {
-                            // Cross-origin error or other issue
-                            showLinkedInFallback();
-                        }
-                    }, 3000);
-                }
-                
-                function showLinkedInFallback() {
-                    const iframe = document.getElementById('linkedin-embed');
-                    const fallback = document.getElementById('linkedin-fallback');
-                    
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
-                }
-                
-                // Check on page load
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(checkLinkedInEmbed, 2000);
-                });
-                </script>
             </div>
-        </div>
-        
-        <!-- Blog Posts Section -->
-        <div class="blog-posts-section">
-            <h3 class="subsection-title">Blog Posts</h3>
-            <p class="subsection-subtitle">Long-form thoughts and technical insights</p>
             
-            {% for post in site.posts reversed %}
-                {% if post.category contains 'Posts'%}
-                <div class="post-card" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem; border-radius: var(--border-radius); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease;">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 600;">{{ post.title }}</h3>
-                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">{{ post.content }}</div>
-                        </div>
-                        {% if post.img %}
-                        <div class="col-lg-4">
-                            <img src="img/posts/{{ post.img }}" alt="{{ post.title }}" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow-sm);">
+            <!-- Blog Posts -->
+            <div class="insight-card blog-insight">
+                <div class="insight-header">
+                    <div class="insight-type">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <span>Blog Posts</span>
+                    </div>
+                    <span class="post-count">Long-form insights</span>
+                </div>
+                
+                <div class="insight-content">
+                    <div class="blog-posts-container">
+                        {% for post in site.posts reversed %}
+                            {% if post.category contains 'Posts'%}
+                            <div class="blog-post-item">
+                                <div class="post-header">
+                                    <h4 class="post-title">{{ post.title }}</h4>
+                                    {% if post.img %}
+                                    <div class="post-image">
+                                        <img src="img/posts/{{ post.img }}" alt="{{ post.title }}" style="width: 100%; border-radius: 8px; box-shadow: var(--shadow-sm);">
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="post-excerpt">
+                                    {{ post.content | truncate: 200 }}
+                                </div>
+                                <div class="post-actions">
+                                    <a href="#" class="read-more-link">Read More</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if site.posts.size == 0 %}
+                        <div class="empty-state">
+                            <i class="fa fa-pencil" style="font-size: 3rem; color: var(--text-light); margin-bottom: 1rem;"></i>
+                            <h4 style="color: var(--text-secondary);">No blog posts yet</h4>
+                            <p style="color: var(--text-light);">Check back soon for updates and insights!</p>
                         </div>
                         {% endif %}
                     </div>
                 </div>
-                {% endif %}
-            {% endfor %}
-            
-            {% if site.posts.size == 0 %}
-            <div style="text-align: center; padding: 4rem 0;">
-                <i class="fa fa-pencil" style="font-size: 4rem; color: var(--text-light); margin-bottom: 2rem;"></i>
-                <h3 style="color: var(--text-secondary);">No blog posts yet</h3>
-                <p style="color: var(--text-light);">Check back soon for updates and insights!</p>
             </div>
-            {% endif %}
         </div>
+        
+        <!-- LinkedIn Embed Script -->
+        <script>
+        function checkLinkedInEmbed() {
+            const iframe = document.getElementById('linkedin-embed');
+            const fallback = document.getElementById('linkedin-fallback');
+            
+            // Check if iframe loaded successfully
+            setTimeout(() => {
+                try {
+                    if (iframe.contentWindow && iframe.contentWindow.location.href) {
+                        // Iframe loaded successfully
+                        iframe.style.display = 'block';
+                        fallback.style.display = 'none';
+                    } else {
+                        // Show fallback
+                        showLinkedInFallback();
+                    }
+                } catch (e) {
+                    // Cross-origin error or other issue
+                    showLinkedInFallback();
+                }
+            }, 3000);
+        }
+        
+        function showLinkedInFallback() {
+            const iframe = document.getElementById('linkedin-embed');
+            const fallback = document.getElementById('linkedin-fallback');
+            
+            iframe.style.display = 'none';
+            fallback.style.display = 'block';
+        }
+        
+        // Check on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(checkLinkedInEmbed, 2000);
+        });
+        </script>
     </div>
 </section>
