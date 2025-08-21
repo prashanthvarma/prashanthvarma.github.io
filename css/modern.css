@@ -749,6 +749,66 @@ body::before {
   margin: 3rem 0;
 }
 
+.linkedin-embed-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.linkedin-fallback {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 3rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallback-content {
+  text-align: center;
+}
+
+.fallback-content h4 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.fallback-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.fallback-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fallback-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0077b5, #005885);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.fallback-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
 .social-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);

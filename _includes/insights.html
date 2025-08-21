@@ -17,21 +17,83 @@
                 
                 <!-- LinkedIn Post Embed -->
                 <div class="social-content">
-                    <div style="text-align: center; margin: 20px 0;">
+                    <div class="linkedin-embed-container">
+                        <!-- Primary LinkedIn Embed -->
                         <iframe 
-                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1" 
+                            id="linkedin-embed"
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844" 
                             height="400" 
                             width="100%" 
                             frameborder="0" 
                             allowfullscreen="" 
                             title="Embedded LinkedIn post"
-                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%;">
+                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%;"
+                            onload="checkLinkedInEmbed()"
+                            onerror="showLinkedInFallback()">
                         </iframe>
+                        
+                        <!-- Fallback Content -->
+                        <div id="linkedin-fallback" class="linkedin-fallback" style="display: none;">
+                            <div class="fallback-content">
+                                <i class="fa fa-linkedin" style="font-size: 3rem; color: #0077b5; margin-bottom: 1rem;"></i>
+                                <h4>LinkedIn Post</h4>
+                                <p>Recent professional insights and industry perspectives</p>
+                                <div class="fallback-actions">
+                                    <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="fallback-link">
+                                        <i class="fa fa-external-link"></i>
+                                        View on LinkedIn
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" class="fallback-link">
+                                        <i class="fa fa-user"></i>
+                                        Visit Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <p style="margin-top: 10px; color: #666; font-size: 14px;">
                             <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank">View original post on LinkedIn</a>
                         </p>
                     </div>
                 </div>
+                
+                <!-- LinkedIn Embed Script -->
+                <script>
+                function checkLinkedInEmbed() {
+                    const iframe = document.getElementById('linkedin-embed');
+                    const fallback = document.getElementById('linkedin-fallback');
+                    
+                    // Check if iframe loaded successfully
+                    setTimeout(() => {
+                        try {
+                            if (iframe.contentWindow && iframe.contentWindow.location.href) {
+                                // Iframe loaded successfully
+                                iframe.style.display = 'block';
+                                fallback.style.display = 'none';
+                            } else {
+                                // Show fallback
+                                showLinkedInFallback();
+                            }
+                        } catch (e) {
+                            // Cross-origin error or other issue
+                            showLinkedInFallback();
+                        }
+                    }, 3000);
+                }
+                
+                function showLinkedInFallback() {
+                    const iframe = document.getElementById('linkedin-embed');
+                    const fallback = document.getElementById('linkedin-fallback');
+                    
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+                
+                // Check on page load
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(checkLinkedInEmbed, 2000);
+                });
+                </script>
             </div>
         </div>
         
