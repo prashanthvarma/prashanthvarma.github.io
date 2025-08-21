@@ -21,21 +21,15 @@
                 <div class="social-insight-content">
                     <div class="embed-container">
                         <!-- LinkedIn Post Embed -->
-                        <div id="linkedin-loading" class="embed-loading">
-                            <i class="fa fa-spinner fa-spin" style="font-size: 2rem; color: #0077b5; margin-bottom: 1rem;"></i>
-                            <p>Loading LinkedIn post...</p>
-                        </div>
                         <iframe 
                             id="linkedin-embed"
-                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1&hideSocialContext=true" 
-                            height="400" 
-                            width="100%" 
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1" 
+                            height="593" 
+                            width="504" 
                             frameborder="0" 
                             allowfullscreen="" 
-                            title="Embedded LinkedIn post"
-                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; display: none;"
-                            onload="checkLinkedInEmbed()"
-                            onerror="showLinkedInFallback()">
+                            title="Embedded post"
+                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; width: 100%;">
                         </iframe>
                         
                         <!-- LinkedIn Fallback -->
@@ -107,58 +101,19 @@
         
         <!-- LinkedIn Embed Script -->
         <script>
-        function checkLinkedInEmbed() {
-            const iframe = document.getElementById('linkedin-embed');
-            const fallback = document.getElementById('linkedin-fallback');
-            const loading = document.getElementById('linkedin-loading');
-            
-            // Check if iframe loaded successfully
-            setTimeout(() => {
-                try {
-                    // Try to access iframe content
-                    if (iframe.contentWindow && iframe.contentWindow.document) {
-                        // Iframe loaded successfully
-                        loading.style.display = 'none';
-                        iframe.style.display = 'block';
-                        fallback.style.display = 'none';
-                    } else {
-                        // Show fallback
-                        showLinkedInFallback();
-                    }
-                } catch (e) {
-                    // Cross-origin error or other issue - this is expected
-                    // Check if iframe has any content by checking its height
-                    if (iframe.offsetHeight > 100) {
-                        // Iframe seems to have loaded content
-                        loading.style.display = 'none';
-                        iframe.style.display = 'block';
-                        fallback.style.display = 'none';
-                    } else {
-                        // Show fallback
-                        showLinkedInFallback();
-                    }
-                }
-            }, 4000); // Increased timeout to 4 seconds
-        }
-        
-        function showLinkedInFallback() {
-            const iframe = document.getElementById('linkedin-embed');
-            const fallback = document.getElementById('linkedin-fallback');
-            const loading = document.getElementById('linkedin-loading');
-            
-            loading.style.display = 'none';
-            iframe.style.display = 'none';
-            fallback.style.display = 'block';
-        }
-        
-        // Check on page load
+        // Simple fallback if LinkedIn embed fails to load
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(checkLinkedInEmbed, 2000);
-        });
-        
-        // Also check when iframe loads
-        window.addEventListener('load', function() {
-            setTimeout(checkLinkedInEmbed, 3000);
+            const iframe = document.getElementById('linkedin-embed');
+            const fallback = document.getElementById('linkedin-fallback');
+            
+            // Check if iframe loaded after 5 seconds
+            setTimeout(() => {
+                if (iframe && iframe.offsetHeight < 200) {
+                    // If iframe is too small, show fallback
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 5000);
         });
         </script>
     </div>
