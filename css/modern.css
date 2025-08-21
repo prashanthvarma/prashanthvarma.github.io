@@ -839,6 +839,25 @@ body::before {
   margin: 20px 0;
 }
 
+.embed-loading {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 3rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.embed-loading p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
 .embed-fallback {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e0e0e0;

@@ -21,15 +21,19 @@
                 <div class="social-insight-content">
                     <div class="embed-container">
                         <!-- LinkedIn Post Embed -->
+                        <div id="linkedin-loading" class="embed-loading">
+                            <i class="fa fa-spinner fa-spin" style="font-size: 2rem; color: #0077b5; margin-bottom: 1rem;"></i>
+                            <p>Loading LinkedIn post...</p>
+                        </div>
                         <iframe 
                             id="linkedin-embed"
-                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844" 
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1&hideSocialContext=true" 
                             height="400" 
                             width="100%" 
                             frameborder="0" 
                             allowfullscreen="" 
                             title="Embedded LinkedIn post"
-                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%;"
+                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; display: none;"
                             onload="checkLinkedInEmbed()"
                             onerror="showLinkedInFallback()">
                         </iframe>
@@ -39,15 +43,15 @@
                             <div class="fallback-content">
                                 <i class="fa fa-linkedin" style="font-size: 3rem; color: #0077b5; margin-bottom: 1rem;"></i>
                                 <h4>LinkedIn Post</h4>
-                                <p>Professional insights and industry perspectives</p>
+                                <p>Professional insights and industry perspectives from my latest LinkedIn post</p>
                                 <div class="fallback-actions">
                                     <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="fallback-link">
                                         <i class="fa fa-external-link"></i>
-                                        View on LinkedIn
+                                        View Original Post
                                     </a>
                                     <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" class="fallback-link">
                                         <i class="fa fa-user"></i>
-                                        Visit Profile
+                                        Visit My Profile
                                     </a>
                                 </div>
                             </div>
@@ -106,12 +110,15 @@
         function checkLinkedInEmbed() {
             const iframe = document.getElementById('linkedin-embed');
             const fallback = document.getElementById('linkedin-fallback');
+            const loading = document.getElementById('linkedin-loading');
             
             // Check if iframe loaded successfully
             setTimeout(() => {
                 try {
-                    if (iframe.contentWindow && iframe.contentWindow.location.href) {
+                    // Try to access iframe content
+                    if (iframe.contentWindow && iframe.contentWindow.document) {
                         // Iframe loaded successfully
+                        loading.style.display = 'none';
                         iframe.style.display = 'block';
                         fallback.style.display = 'none';
                     } else {
@@ -119,16 +126,27 @@
                         showLinkedInFallback();
                     }
                 } catch (e) {
-                    // Cross-origin error or other issue
-                    showLinkedInFallback();
+                    // Cross-origin error or other issue - this is expected
+                    // Check if iframe has any content by checking its height
+                    if (iframe.offsetHeight > 100) {
+                        // Iframe seems to have loaded content
+                        loading.style.display = 'none';
+                        iframe.style.display = 'block';
+                        fallback.style.display = 'none';
+                    } else {
+                        // Show fallback
+                        showLinkedInFallback();
+                    }
                 }
-            }, 3000);
+            }, 4000); // Increased timeout to 4 seconds
         }
         
         function showLinkedInFallback() {
             const iframe = document.getElementById('linkedin-embed');
             const fallback = document.getElementById('linkedin-fallback');
+            const loading = document.getElementById('linkedin-loading');
             
+            loading.style.display = 'none';
             iframe.style.display = 'none';
             fallback.style.display = 'block';
         }
@@ -136,6 +154,11 @@
         // Check on page load
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(checkLinkedInEmbed, 2000);
+        });
+        
+        // Also check when iframe loads
+        window.addEventListener('load', function() {
+            setTimeout(checkLinkedInEmbed, 3000);
         });
         </script>
     </div>
