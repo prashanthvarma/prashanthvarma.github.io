@@ -1,59 +1,33 @@
-<section id="posts">
-<!-- Page Content -->
-{% for post in site.posts reversed %}
-    {% if post.category contains 'Posts'%}
-      {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-        {% if thecycle == 'odd' %}
-        <div class="content-section-a">
-
-            <div class="container">
+<!-- Posts Section -->
+<section id="posts" class="section" style="background: var(--bg-secondary);">
+    <div class="container">
+        <h2 class="section-title">Latest Posts</h2>
+        <p class="section-subtitle">Thoughts, insights, and updates from my journey in technology</p>
+        
+        {% for post in site.posts reversed %}
+            {% if post.category contains 'Posts'%}
+            <div class="post-card" style="background: var(--bg-primary); padding: 3rem; border-radius: var(--border-radius); box-shadow: var(--shadow-md); margin-bottom: 3rem; border: 1px solid var(--border-color);">
                 <div class="row">
-                    <h2 class="category-heading alt-font">{{ post.category }}</h2>
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5 col-sm-6">
-                        <h2 class="section-heading">{{ post.title }}</h2>
-                        <div class="lead">{{ post.content }}</div>
+                    <div class="col-lg-8">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 600;">{{ post.title }}</h3>
+                        <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">{{ post.content }}</div>
                     </div>
-                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                        <h2 class="section-heading">&nbsp</h2>
-                        <img class="img-responsive center-block" src="img/posts/{{ post.img }}" alt="">
+                    {% if post.img %}
+                    <div class="col-lg-4">
+                        <img src="img/posts/{{ post.img }}" alt="{{ post.title }}" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow-sm);">
                     </div>
+                    {% endif %}
                 </div>
-
             </div>
-            <!-- /.container -->
-
+            {% endif %}
+        {% endfor %}
+        
+        {% if site.posts.size == 0 %}
+        <div style="text-align: center; padding: 4rem 0;">
+            <i class="fa fa-pencil" style="font-size: 4rem; color: var(--text-light); margin-bottom: 2rem;"></i>
+            <h3 style="color: var(--text-secondary);">No posts yet</h3>
+            <p style="color: var(--text-light);">Check back soon for updates and insights!</p>
         </div>
-        <!-- /.content-section-a -->
-        {% else %}
-
-        <div class="content-section-b">
-
-            <div class="container">
-                <div class="row">
-                    <h2 class="category-heading alt-font">{{ post.category }}</h2>
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                        <h2 class="section-heading">{{ post.title }}</h2>
-                        <div class="lead">{{ post.content }}</div>
-                    </div>
-                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                        <h2 class="section-heading">&nbsp</h2>
-                        <img class="img-responsive center-block" src="img/posts/{{ post.img }}" alt="">
-                    </div>
-                </div>
-        </div>
-            <!-- /.container -->
-
-        </div>
-        <!-- /.content-section-b -->
         {% endif %}
-    {% endif %}
-{% endfor %}
+    </div>
 </section>
