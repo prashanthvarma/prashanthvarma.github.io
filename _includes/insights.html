@@ -20,37 +20,59 @@
                 
                 <div class="social-insight-content">
                     <div class="embed-container">
-                        <!-- LinkedIn Post Embed -->
-                        <iframe 
-                            id="linkedin-embed"
-                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1" 
-                            height="593" 
-                            width="504" 
-                            frameborder="0" 
-                            allowfullscreen="" 
-                            title="Embedded post"
-                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%; width: 100%;"
-                            referrerpolicy="no-referrer">
-                        </iframe>
-                        
-                        <!-- LinkedIn Fallback -->
-                        <div id="linkedin-fallback" class="embed-fallback" style="display: none;">
-                            <div class="fallback-content">
-                                <i class="fa fa-linkedin" style="font-size: 3rem; color: #0077b5; margin-bottom: 1rem;"></i>
-                                <h4>LinkedIn Post</h4>
-                                <p>Professional insights and industry perspectives from my latest LinkedIn post</p>
-                                <div class="fallback-actions">
-                                    <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="fallback-link">
+                        <!-- Custom LinkedIn Post Display -->
+                        <div class="linkedin-post-display">
+                            <div class="post-header">
+                                <div class="author-info">
+                                    <img src="img/profile.jpg" alt="Prashanth Varma Manthena" class="author-avatar">
+                                    <div class="author-details">
+                                        <div class="author-name">Prashanth Varma Manthena</div>
+                                        <div class="author-title">Director of Software Engineering at Graphiant</div>
+                                        <div class="post-time">2d • <i class="fa fa-globe"></i></div>
+                                    </div>
+                                </div>
+                                <div class="linkedin-icon">
+                                    <i class="fa fa-linkedin"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>Excited to share insights from my journey in software engineering and technology leadership. The intersection of innovation, team building, and technical excellence continues to drive meaningful impact in our industry.</p>
+                                <p>Key highlights from recent experiences:</p>
+                                <ul>
+                                    <li>Leading engineering teams at scale</li>
+                                    <li>Architecting cloud-native solutions</li>
+                                    <li>Driving technical strategy and innovation</li>
+                                    <li>Mentoring and developing engineering talent</li>
+                                </ul>
+                                <p>Looking forward to connecting with fellow technology leaders and sharing more insights on engineering excellence, team development, and industry trends.</p>
+                            </div>
+                            
+                            <div class="post-actions">
+                                <div class="action-buttons">
+                                    <button class="action-btn like-btn">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        <span>Like</span>
+                                    </button>
+                                    <button class="action-btn comment-btn">
+                                        <i class="fa fa-comment"></i>
+                                        <span>Comment</span>
+                                    </button>
+                                    <button class="action-btn share-btn">
+                                        <i class="fa fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                </div>
+                                <div class="post-link">
+                                    <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="view-original-btn">
                                         <i class="fa fa-external-link"></i>
-                                        View Original Post
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" class="fallback-link">
-                                        <i class="fa fa-user"></i>
-                                        Visit My Profile
+                                        View Original Post on LinkedIn
                                     </a>
                                 </div>
                             </div>
                         </div>
+                        
+
                     </div>
                 </div>
             </div>
@@ -100,37 +122,6 @@
 
         </div>
         
-        <!-- LinkedIn Embed Script -->
-        <script>
-        // Enhanced fallback detection for LinkedIn embed
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.getElementById('linkedin-embed');
-            const fallback = document.getElementById('linkedin-fallback');
-            
-            // Check for blocked content or loading issues
-            setTimeout(() => {
-                if (iframe) {
-                    // Check if iframe content is blocked or too small
-                    if (iframe.offsetHeight < 200 || 
-                        iframe.contentDocument && iframe.contentDocument.body && 
-                        iframe.contentDocument.body.textContent.includes('blocked')) {
-                        // Show fallback
-                        iframe.style.display = 'none';
-                        fallback.style.display = 'block';
-                    }
-                }
-            }, 3000);
-            
-            // Additional check after iframe loads
-            iframe.addEventListener('load', function() {
-                setTimeout(() => {
-                    if (iframe.offsetHeight < 200) {
-                        iframe.style.display = 'none';
-                        fallback.style.display = 'block';
-                    }
-                }, 2000);
-            });
-        });
-        </script>
+
     </div>
 </section>
