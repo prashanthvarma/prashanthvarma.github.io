@@ -389,6 +389,94 @@ body::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Twitter/X Section */
+.twitter-section {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  margin: 40px 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.twitter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.twitter-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twitter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(29, 161, 242, 0.3);
+}
+
+.twitter-card .twitter-tweet {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.twitter-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.twitter-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: rgba(29, 161, 242, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  box-shadow: 0 8px 32px rgba(29, 161, 242, 0.2);
+  border: 1px solid rgba(29, 161, 242, 0.3);
+}
+
+.twitter-follow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(29, 161, 242, 0.3);
+  color: white;
+  text-decoration: none;
+  background: rgba(29, 161, 242, 1);
+}
+
+.twitter-follow-btn i {
+  font-size: 1.1rem;
+}
+
+/* Responsive Twitter Grid */
+@media (max-width: 768px) {
+  .twitter-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .twitter-card {
+    min-height: 250px;
+  }
+}
+
 .contact-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
