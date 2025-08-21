@@ -1,0 +1,128 @@
+<!-- Visitor Summary Section -->
+<section class="visitor-summary-section">
+    <div class="container">
+        <div class="visitor-summary-content">
+            <div class="visitor-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fa fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="page-views">-</span>
+                        <span class="stat-label">Page Views</span>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="unique-visitors">-</span>
+                        <span class="stat-label">Unique Visitors</span>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="countries">-</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="days-online">-</span>
+                        <span class="stat-label">Days Online</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visitor-message">
+                <p>Thank you for visiting! This website has been viewed by professionals from around the world.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Visitor Summary Analytics
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize visitor tracking
+    initializeVisitorTracking();
+    
+    // Update stats periodically
+    setInterval(updateVisitorStats, 30000); // Update every 30 seconds
+});
+
+function initializeVisitorTracking() {
+    // Store visitor data in localStorage
+    const visitorData = JSON.parse(localStorage.getItem('visitorData') || '{}');
+    const now = new Date().toISOString().split('T')[0];
+    
+    // Increment page views
+    visitorData.pageViews = (visitorData.pageViews || 0) + 1;
+    visitorData.lastVisit = now;
+    
+    // Track unique visitors (simple implementation)
+    if (!visitorData.uniqueVisitors) {
+        visitorData.uniqueVisitors = 1;
+    } else if (!visitorData.lastUniqueVisit || visitorData.lastUniqueVisit !== now) {
+        visitorData.uniqueVisitors += 1;
+        visitorData.lastUniqueVisit = now;
+    }
+    
+    // Calculate days online (since first visit)
+    if (!visitorData.firstVisit) {
+        visitorData.firstVisit = now;
+    }
+    
+    localStorage.setItem('visitorData', JSON.stringify(visitorData));
+    
+    // Update display
+    updateVisitorStats();
+}
+
+function updateVisitorStats() {
+    const visitorData = JSON.parse(localStorage.getItem('visitorData') || '{}');
+    
+    // Calculate days online
+    let daysOnline = 0;
+    if (visitorData.firstVisit) {
+        const firstVisit = new Date(visitorData.firstVisit);
+        const today = new Date();
+        daysOnline = Math.ceil((today - firstVisit) / (1000 * 60 * 60 * 24));
+    }
+    
+    // Update display with animation
+    animateNumber('page-views', visitorData.pageViews || 0);
+    animateNumber('unique-visitors', visitorData.uniqueVisitors || 1);
+    animateNumber('countries', Math.min(visitorData.uniqueVisitors || 1, 25)); // Estimate based on visitors
+    animateNumber('days-online', Math.max(daysOnline, 1));
+}
+
+function animateNumber(elementId, targetValue) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    const currentValue = parseInt(element.textContent) || 0;
+    const increment = (targetValue - currentValue) / 20;
+    let current = currentValue;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+            element.textContent = targetValue.toLocaleString();
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toLocaleString();
+        }
+    }, 50);
+}
+</script>

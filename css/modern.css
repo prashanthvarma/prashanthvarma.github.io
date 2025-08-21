@@ -997,6 +997,128 @@ body::before {
   margin-bottom: 3rem;
 }
 
+/* Visitor Summary Section */
+.visitor-summary-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 40px 20px;
+  padding: 3rem 0;
+  transition: var(--transition);
+}
+
+.visitor-summary-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.visitor-summary-content {
+  text-align: center;
+}
+
+.visitor-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.visitor-message {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-accent);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.visitor-message p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Visitor Summary */
+@media (max-width: 768px) {
+  .visitor-summary-section {
+    margin: 20px 10px;
+    padding: 2rem 0;
+  }
+  
+  .visitor-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stat-info {
+    align-items: center;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
 /* Responsive Social Media Insights Grid */
 @media (max-width: 768px) {
   .social-insights-grid {
