@@ -742,15 +742,15 @@ body::before {
 
 
 
-/* Insights Grid */
-.insights-grid {
+/* Social Media Insights Grid */
+.social-insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
 }
 
-.insight-card {
+.social-insight-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius);
@@ -760,20 +760,24 @@ body::before {
   overflow: hidden;
 }
 
-.insight-card:hover {
+.social-insight-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.linkedin-insight:hover {
+.linkedin-card:hover {
   border-color: rgba(0, 119, 181, 0.3);
 }
 
-.blog-insight:hover {
-  border-color: rgba(59, 130, 246, 0.3);
+.twitter-card:hover {
+  border-color: rgba(29, 161, 242, 0.3);
 }
 
-.insight-header {
+.github-card:hover {
+  border-color: rgba(36, 41, 46, 0.3);
+}
+
+.social-insight-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -782,7 +786,7 @@ body::before {
   background: var(--bg-secondary);
 }
 
-.insight-type {
+.platform-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -790,30 +794,25 @@ body::before {
   color: var(--text-primary);
 }
 
-.insight-type i {
+.platform-info i {
   font-size: 1.2rem;
 }
 
-.linkedin-insight .insight-type i {
+.linkedin-card .platform-info i {
   color: #0077b5;
 }
 
-.blog-insight .insight-type i {
-  color: #3b82f6;
+.twitter-card .platform-info i {
+  color: #1da1f2;
 }
 
-.post-count {
-  background: var(--bg-accent);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 500;
+.github-card .platform-info i {
+  color: #24292e;
 }
 
-.insight-content {
+.social-insight-content {
   padding: 2rem;
-  min-height: 400px;
+  min-height: 450px;
 }
 
 /* LinkedIn Activity Container */
@@ -821,6 +820,58 @@ body::before {
   display: flex;
   justify-content: center;
   margin: 3rem 0;
+}
+
+.embed-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.embed-fallback {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 3rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twitter-fallback {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 3rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-info {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.github-info h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.github-info p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.github-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .linkedin-embed-container {
@@ -839,74 +890,7 @@ body::before {
   justify-content: center;
 }
 
-/* Blog Posts Container */
-.blog-posts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-height: 400px;
-  overflow-y: auto;
-}
 
-.blog-post-item {
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: var(--transition);
-  border-left: 4px solid transparent;
-}
-
-.blog-post-item:hover {
-  background: var(--bg-accent);
-  border-left-color: var(--primary-color);
-  transform: translateX(4px);
-}
-
-.post-header {
-  margin-bottom: 1rem;
-}
-
-.post-title {
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
-}
-
-.post-image {
-  margin-bottom: 1rem;
-}
-
-.post-excerpt {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.post-actions {
-  text-align: right;
-}
-
-.read-more-link {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.read-more-link:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-light);
-}
 
 .fallback-content {
   text-align: center;
@@ -950,6 +934,22 @@ body::before {
   box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
   color: white;
   text-decoration: none;
+}
+
+.twitter-link {
+  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+}
+
+.twitter-link:hover {
+  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+}
+
+.github-link {
+  background: linear-gradient(135deg, #24292e, #1b1f23);
+}
+
+.github-link:hover {
+  box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
 }
 
 .social-card {
@@ -1030,32 +1030,33 @@ body::before {
   margin-bottom: 3rem;
 }
 
-/* Responsive Insights Grid */
+/* Responsive Social Media Insights Grid */
 @media (max-width: 768px) {
-  .insights-grid {
+  .social-insights-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  .insight-card {
+  .social-insight-card {
     min-height: auto;
   }
   
-  .insight-content {
+  .social-insight-content {
     padding: 1.5rem;
     min-height: 350px;
   }
   
-  .insight-header {
+  .social-insight-header {
     padding: 1rem 1.5rem;
   }
   
-  .blog-posts-container {
-    max-height: 300px;
+  .embed-container {
+    margin: 10px 0;
   }
   
-  .blog-post-item {
-    padding: 1rem;
+  .embed-fallback {
+    padding: 2rem;
+    min-height: 300px;
   }
 }
 
