@@ -477,6 +477,388 @@ body::after {
   }
 }
 
+/* GitHub & GitLab Activity Section */
+.github-activity-section {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  margin: 40px 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.activity-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.github-card:hover {
+  border-color: rgba(36, 41, 46, 0.3);
+}
+
+.gitlab-card:hover {
+  border-color: rgba(252, 109, 38, 0.3);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.activity-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.activity-header i {
+  font-size: 1.5rem;
+}
+
+.github-card .activity-header i {
+  color: #24292e;
+}
+
+.gitlab-card .activity-header i {
+  color: #fc6d26;
+}
+
+.profile-link {
+  color: var(--text-secondary);
+  transition: var(--transition);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.profile-link:hover {
+  color: var(--primary-color);
+  background: var(--bg-accent);
+  text-decoration: none;
+}
+
+.contributions-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contributions-graph {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gitlab-contributions {
+  padding: 2rem;
+  background: linear-gradient(135deg, #fc6d26, #e24329);
+  border-radius: 8px;
+  color: white;
+}
+
+.gitlab-info {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-accent);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recent-repos h4 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.repo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.repo-item:hover {
+  background: var(--bg-accent);
+  transform: translateX(4px);
+}
+
+.repo-item i {
+  color: var(--text-secondary);
+  width: 16px;
+}
+
+.repo-item a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  flex: 1;
+}
+
+.repo-item a:hover {
+  color: var(--primary-color);
+}
+
+.repo-language {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.loading-placeholder {
+  text-align: center;
+  color: var(--text-light);
+  font-style: italic;
+  padding: 1rem;
+}
+
+.activity-summary {
+  margin-top: 3rem;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  text-align: center;
+}
+
+.summary-card h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.focus-areas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.focus-tag {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.focus-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive Activity Grid */
+@media (max-width: 768px) {
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .focus-areas {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Social Activity Grid */
+.social-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.social-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.linkedin-card:hover {
+  border-color: rgba(0, 119, 181, 0.3);
+}
+
+.twitter-card:hover {
+  border-color: rgba(29, 161, 242, 0.3);
+}
+
+.social-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.social-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.social-header i {
+  font-size: 1.5rem;
+}
+
+.linkedin-card .social-header i {
+  color: #0077b5;
+}
+
+.twitter-card .social-header i {
+  color: #1da1f2;
+}
+
+.social-content {
+  padding: 2rem;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twitter-timeline-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blog Posts Section */
+.blog-posts-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.subsection-title {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subsection-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Responsive Social Activity Grid */
+@media (max-width: 768px) {
+  .social-activity-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .social-content {
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+  
+  .social-header {
+    padding: 1rem 1.5rem;
+  }
+}
+
 .contact-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

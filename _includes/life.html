@@ -1,33 +1,95 @@
-<!-- Posts Section -->
+<!-- Posts & Social Activity Section -->
 <section id="posts" class="section" style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-radius: 30px; margin: 40px 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
     <div class="container">
-        <h2 class="section-title">Latest Posts</h2>
-        <p class="section-subtitle">Thoughts, insights, and updates from my journey in technology</p>
+        <h2 class="section-title">Latest Posts & Social Activity</h2>
+        <p class="section-subtitle">Thoughts, insights, and updates from my journey in technology and professional network</p>
         
-        {% for post in site.posts reversed %}
-            {% if post.category contains 'Posts'%}
-            <div class="post-card" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem; border-radius: var(--border-radius); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease;">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 600;">{{ post.title }}</h3>
-                        <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">{{ post.content }}</div>
+        <!-- Social Activity Grid -->
+        <div class="social-activity-grid">
+            <!-- LinkedIn Activity -->
+            <div class="social-card linkedin-card">
+                <div class="social-header">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <h3>LinkedIn Activity</h3>
+                    <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" rel="noopener noreferrer" class="profile-link" aria-label="Visit LinkedIn profile">
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                </div>
+                
+                <!-- LinkedIn Post Embed -->
+                <div class="social-content">
+                    <div style="text-align: center; margin: 20px 0;">
+                        <iframe 
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7364335388775075844?collapsed=1" 
+                            height="400" 
+                            width="100%" 
+                            frameborder="0" 
+                            allowfullscreen="" 
+                            title="Embedded LinkedIn post"
+                            style="border: 1px solid #e0e0e0; border-radius: 8px; max-width: 100%;">
+                        </iframe>
+                        <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                            <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank">View original post on LinkedIn</a>
+                        </p>
                     </div>
-                    {% if post.img %}
-                    <div class="col-lg-4">
-                        <img src="img/posts/{{ post.img }}" alt="{{ post.title }}" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow-sm);">
-                    </div>
-                    {% endif %}
                 </div>
             </div>
-            {% endif %}
-        {% endfor %}
-        
-        {% if site.posts.size == 0 %}
-        <div style="text-align: center; padding: 4rem 0;">
-            <i class="fa fa-pencil" style="font-size: 4rem; color: var(--text-light); margin-bottom: 2rem;"></i>
-            <h3 style="color: var(--text-secondary);">No posts yet</h3>
-            <p style="color: var(--text-light);">Check back soon for updates and insights!</p>
+            
+            <!-- Twitter Activity -->
+            <div class="social-card twitter-card">
+                <div class="social-header">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <h3>Twitter Activity</h3>
+                    <a href="https://twitter.com/prashanthvarma" target="_blank" rel="noopener noreferrer" class="profile-link" aria-label="Visit Twitter profile">
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                </div>
+                
+                <!-- Twitter Timeline -->
+                <div class="social-content">
+                    <div class="twitter-timeline-container">
+                        <a class="twitter-timeline" 
+                           data-height="400" 
+                           data-theme="light" 
+                           data-chrome="noheader nofooter noborders transparent" 
+                           href="https://twitter.com/prashanthvarma">
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </div>
         </div>
-        {% endif %}
+        
+        <!-- Blog Posts Section -->
+        <div class="blog-posts-section">
+            <h3 class="subsection-title">Blog Posts</h3>
+            <p class="subsection-subtitle">Long-form thoughts and technical insights</p>
+            
+            {% for post in site.posts reversed %}
+                {% if post.category contains 'Posts'%}
+                <div class="post-card" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 3rem; border-radius: var(--border-radius); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); margin-bottom: 3rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease;">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-weight: 600;">{{ post.title }}</h3>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">{{ post.content }}</div>
+                        </div>
+                        {% if post.img %}
+                        <div class="col-lg-4">
+                            <img src="img/posts/{{ post.img }}" alt="{{ post.title }}" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--shadow-sm);">
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+            
+            {% if site.posts.size == 0 %}
+            <div style="text-align: center; padding: 4rem 0;">
+                <i class="fa fa-pencil" style="font-size: 4rem; color: var(--text-light); margin-bottom: 2rem;"></i>
+                <h3 style="color: var(--text-secondary);">No blog posts yet</h3>
+                <p style="color: var(--text-light);">Check back soon for updates and insights!</p>
+            </div>
+            {% endif %}
+        </div>
     </div>
 </section>
