@@ -858,13 +858,63 @@ body::before {
   margin: 0;
 }
 
-/* LinkedIn Post Screenshot Display */
-.linkedin-screenshot-display {
+/* LinkedIn Official Widget Display */
+.linkedin-widget-container {
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  color: #0077b5;
+}
+
+.widget-header i {
+  font-size: 1.2rem;
+}
+
+.widget-content {
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LinkedIn Widget Styling */
+.LI-profile-badge {
+  margin: 0 auto;
+}
+
+.LI-simple-link {
+  color: #0077b5 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.LI-simple-link:hover {
+  color: #005885 !important;
+  text-decoration: underline !important;
+}
+
+.widget-actions {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid #f0f0f0;
+  background: #f8f9fa;
 }
 
 .screenshot-container {
@@ -1093,7 +1143,7 @@ body::before {
   box-shadow: 0 2px 8px rgba(0, 119, 181, 0.3);
 }
 
-.view-linkedin-btn, .visit-profile-btn {
+.view-linkedin-btn, .visit-profile-btn, .view-post-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1105,12 +1155,12 @@ body::before {
   transition: all 0.2s ease;
 }
 
-.view-linkedin-btn {
+.view-linkedin-btn, .view-post-btn {
   background: #0077b5;
   color: white;
 }
 
-.view-linkedin-btn:hover {
+.view-linkedin-btn:hover, .view-post-btn:hover {
   background: #005885;
   color: white;
   text-decoration: none;
@@ -1428,19 +1478,28 @@ body::before {
   }
 }
 
-/* Responsive LinkedIn Screenshot Display */
+/* Responsive LinkedIn Widget Display */
 @media (max-width: 768px) {
-  .linkedin-screenshot-display {
+  .linkedin-widget-container {
     margin: 0 10px;
   }
   
-  .screenshot-actions {
+  .widget-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .widget-content {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  
+  .widget-actions {
     padding: 1rem;
     flex-direction: column;
     gap: 0.75rem;
   }
   
-  .view-linkedin-btn, .visit-profile-btn {
+  .view-post-btn, .visit-profile-btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.85rem;
     justify-content: center;

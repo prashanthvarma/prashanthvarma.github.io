@@ -20,29 +20,21 @@
                 
                 <div class="social-insight-content">
                     <div class="embed-container">
-                        <!-- LinkedIn Post Screenshot Display -->
-                        <div class="linkedin-screenshot-display">
-                            <div class="screenshot-container">
-                                <img src="img/linkedin-post-screenshot.jpg" alt="LinkedIn Post Screenshot" class="linkedin-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="screenshot-overlay">
-                                    <div class="overlay-content">
-                                        <i class="fa fa-linkedin"></i>
-                                        <span>View on LinkedIn</span>
-                                    </div>
-                                </div>
-                                <!-- Fallback if screenshot doesn't load -->
-                                <div class="screenshot-fallback" style="display: none;">
-                                    <div class="fallback-content">
-                                        <i class="fa fa-linkedin" style="font-size: 3rem; color: #0077b5; margin-bottom: 1rem;"></i>
-                                        <h4>LinkedIn Post</h4>
-                                        <p>Professional insights and industry perspectives</p>
-                                    </div>
+                        <!-- LinkedIn Official Embed Widget -->
+                        <div class="linkedin-widget-container">
+                            <div class="widget-header">
+                                <i class="fa fa-linkedin"></i>
+                                <span>LinkedIn Profile</span>
+                            </div>
+                            <div class="widget-content">
+                                <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="prashanthvarma">
+                                    <a class="LI-simple-link" href="https://www.linkedin.com/in/prashanthvarma?trk=profile-badge">Prashanth Varma Manthena</a>
                                 </div>
                             </div>
-                            <div class="screenshot-actions">
-                                <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="view-linkedin-btn">
+                            <div class="widget-actions">
+                                <a href="https://www.linkedin.com/feed/update/urn:li:share:7364335388775075844/" target="_blank" class="view-post-btn">
                                     <i class="fa fa-external-link"></i>
-                                    View Original Post
+                                    View Latest Post
                                 </a>
                                 <a href="https://www.linkedin.com/in/prashanthvarma/" target="_blank" class="visit-profile-btn">
                                     <i class="fa fa-user"></i>
@@ -50,6 +42,8 @@
                                 </a>
                             </div>
                         </div>
+                        <!-- LinkedIn Widget Script -->
+                        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
                         
 
                     </div>
