@@ -201,11 +201,13 @@ body::before {
 
 /* Social Buttons */
 .social-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   animation: fadeInUp 1s ease-out 0.6s both;
 }
 
@@ -1728,13 +1730,20 @@ body::before {
   }
   
   .social-buttons {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
   }
   
   .social-btn {
     width: 100%;
-    max-width: 280px;
+    max-width: none;
+  }
+  
+  @media (max-width: 480px) {
+    .social-buttons {
+      grid-template-columns: 1fr;
+      max-width: 280px;
+    }
   }
   
   .about-content {
